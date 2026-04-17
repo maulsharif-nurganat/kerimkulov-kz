@@ -20,77 +20,52 @@
         }
 
         @media print {
-            body {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                background-color: var(--bg-color) !important;
-                color: var(--text-light) !important;
-            }
+            body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
             .no-print { display: none !important; }
-            .quote-section { background-color: #111111 !important; }
-            .project-card { background-color: #0a0a0a !important; border: 1px solid var(--border-color) !important; break-inside: avoid; }
+            .project-card { break-inside: avoid; }
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: var(--bg-color); color: var(--text-light); font-family: var(--font-main); line-height: 1.6; font-weight: 300; overflow-x: hidden; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        /* Навигация */
         nav { padding: 35px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); }
         .logo { font-family: var(--font-ser); font-size: 18px; color: var(--accent-gold); text-decoration: none; letter-spacing: 3px; font-weight: 700; }
         .lang-switcher { display: flex; gap: 15px; font-size: 11px; text-transform: uppercase; }
         .lang-link { color: var(--text-muted); cursor: pointer; transition: 0.3s; letter-spacing: 1px; }
         .lang-link.active { color: var(--accent-gold); font-weight: 500; }
 
-        /* Логика языков */
         [data-lang-content] { display: none; }
         body.lang-ru [data-lang-content="ru"] { display: block; }
         body.lang-kz [data-lang-content="kz"] { display: block; }
         body.lang-en [data-lang-content="en"] { display: block; }
 
-        /* Hero */
         .hero { padding: 80px 0 60px; text-align: center; }
         .hero h1 { font-family: var(--font-ser); font-size: clamp(32px, 5vw, 52px); margin-bottom: 20px; font-weight: 400; letter-spacing: -1px; }
         .hero p { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 5px; }
 
-        /* Блок обращения */
         .quote-section { padding: 80px 0; background: #111111; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
         .quote-flex { display: flex; align-items: center; gap: 60px; }
         .quote-image { flex: 1; }
-        .quote-image img {
-            width: 100%;
-            max-width: 450px;
-            filter: grayscale(20%) contrast(105%);
-            border: 1px solid var(--border-color);
-            box-shadow: 20px 20px 0px -5px rgba(191, 163, 125, 0.1);
-            display: block;
-        }
+        .quote-image img { width: 100%; max-width: 450px; filter: grayscale(20%) contrast(105%); border: 1px solid var(--border-color); box-shadow: 20px 20px 0px -5px rgba(191, 163, 125, 0.1); display: block; }
         .quote-content { flex: 1.2; }
         .quote-content h2 { font-family: var(--font-ser); font-size: 24px; color: var(--accent-gold); margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; }
         .quote-content blockquote { font-size: 22px; font-style: italic; margin-bottom: 30px; color: #ffffff; font-weight: 300; line-height: 1.4; border-left: 3px solid var(--accent-gold); padding-left: 25px; }
         .signature { font-family: var(--font-ser); font-size: 26px; color: var(--text-light); margin-top: 20px; }
         .status { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; }
 
-        /* Опыт / Биография */
-        .bio-section { padding: 100px 0; }
-        .bio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-        .bio-text p { margin-bottom: 20px; color: #ccc; font-size: 16px; }
-
-        /* Проекты */
         .section-title { text-align: center; font-family: var(--font-ser); font-size: 36px; margin: 80px 0 50px; font-weight: 400; }
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 100px; }
-        .project-card { border: 1px solid var(--border-color); padding: 50px 40px; background: #0a0a0a; text-decoration: none; color: inherit; transition: 0.4s ease; position: relative; overflow: hidden; }
+        .project-card { border: 1px solid var(--border-color); padding: 50px 40px; background: #0a0a0a; text-decoration: none; color: inherit; transition: 0.4s ease; display: block; }
         .project-card:hover { border-color: var(--accent-gold); transform: translateY(-5px); }
         .project-card i { color: var(--accent-gold); font-size: 28px; margin-bottom: 25px; display: block; }
         .project-card h3 { font-family: var(--font-ser); font-size: 22px; margin-bottom: 15px; color: var(--accent-gold); font-weight: 400; }
         .project-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
 
-        /* Контакты */
         .footer-contacts { text-align: center; padding: 120px 0; background: #080808; border-top: 1px solid var(--border-color); }
         .contact-label { font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: var(--accent-gold); margin-bottom: 20px; display: block; }
         .email-link { font-family: var(--font-ser); font-size: clamp(18px, 4vw, 32px); color: var(--text-light); text-decoration: none; transition: 0.3s; padding-bottom: 8px; border-bottom: 1px solid rgba(191, 163, 125, 0.3); }
         .email-link:hover { color: var(--accent-gold); border-bottom-color: var(--accent-gold); }
-
         .social-footer { margin-top: 50px; display: flex; justify-content: center; gap: 35px; font-size: 22px; }
         .social-footer a { color: var(--text-muted); transition: 0.3s; }
         .social-footer a:hover { color: var(--accent-gold); transform: scale(1.1); }
@@ -100,7 +75,6 @@
         @media (max-width: 900px) {
             .quote-flex { flex-direction: column; text-align: center; }
             .quote-content blockquote { border-left: none; padding-left: 0; }
-            .bio-grid { grid-template-columns: 1fr; gap: 30px; }
             .hero { padding: 50px 0; }
         }
     </style>
@@ -122,9 +96,9 @@
         <h1 data-lang-content="kz">Керімқұлов Қуаныш Жанбырұлы</h1>
         <h1 data-lang-content="en">Kuanysh Kerimkulov</h1>
 
-        <p data-lang-content="ru">Основатель холдинга «СУНКАР» • Общественный деятель</p>
-        <p data-lang-content="kz">«СҰҢҚАР» холдингінің негізін қалаушы • Қоғам қайраткері</p>
-        <p data-lang-content="en">Founder of SUNKAR Holding • Public Figure</p>
+        <p data-lang-content="ru" data-key="subtitle">Основатель холдинга «СУНКАР» • Общественный деятель</p>
+        <p data-lang-content="kz" data-key="subtitle">«СҰҢҚАР» холдингінің негізін қалаушы • Қоғам қайраткері</p>
+        <p data-lang-content="en" data-key="subtitle">Founder of SUNKAR Holding • Public Figure</p>
     </header>
 </div>
 
@@ -139,14 +113,14 @@
                 <h2 data-lang-content="kz">Жеке көзқарас</h2>
                 <h2 data-lang-content="en">Vision</h2>
 
-                <blockquote data-lang-content="ru">«Медицина Казахстана должна объединять лучшие мировые практики и традиции нашего народа. Наша цель — доступное и качественное долголетие для каждого».</blockquote>
-                <blockquote data-lang-content="kz">«Қазақстан медицинасы әлемдік озық тәжірибелер мен халқымыздың дәстүрлерін біріктіруі тиіс. Біздің мақсатымыз — әрбір адам үшін қолжетімді және сапалы ұзақ ғұмыр».</blockquote>
-                <blockquote data-lang-content="en">"Kazakhstan's medicine must combine the best global practices with the traditions of our people. Our goal is accessible and high-quality longevity for everyone."</blockquote>
+                <blockquote data-lang-content="ru" data-key="quote">«Медицина Казахстана должна объединять лучшие мировые практики и традиции нашего народа. Наша цель — доступное и качественное долголетие для каждого».</blockquote>
+                <blockquote data-lang-content="kz" data-key="quote">«Қазақстан медицинасы әлемдік озық тәжірибелер мен халқымыздың дәстүрлерін біріктіруі тиіс. Біздің мақсатымыз — әрбір адам үшін қолжетімді және сапалы ұзақ ғұмыр».</blockquote>
+                <blockquote data-lang-content="en" data-key="quote">"Kazakhstan's medicine must combine the best global practices with the traditions of our people. Our goal is accessible and high-quality longevity for everyone."</blockquote>
 
                 <div class="signature">К. Д. Керимкулов</div>
-                <div class="status" data-lang-content="ru">Глава медицинского консорциума</div>
-                <div class="status" data-lang-content="kz">Медициналық консорциум басшысы</div>
-                <div class="status" data-lang-content="en">Head of Medical Consortium</div>
+                <div class="status" data-lang-content="ru" data-key="status">Глава медицинского консорциума</div>
+                <div class="status" data-lang-content="kz" data-key="status">Медициналық консорциум басшысы</div>
+                <div class="status" data-lang-content="en" data-key="status">Head of Medical Consortium</div>
             </div>
         </div>
     </div>
@@ -167,7 +141,6 @@
             <p data-lang-content="kz">Диагностикалық қызметтердің толық спектрін ұсынатын Қазақстандағы ең ірі медициналық орталықтардың бірі.</p>
             <p data-lang-content="en">One of the largest medical centers in Kazakhstan, providing a full range of diagnostic services.</p>
         </a>
-
         <a href="http://mcs.kz" class="project-card" target="_blank">
             <i class="fas fa-microscope"></i>
             <h3 data-lang-content="ru">Medical Company Sunkar</h3>
@@ -177,7 +150,6 @@
             <p data-lang-content="kz">Жоғары технологиялық медициналық жабдықтарды кәсіби жеткізу, орнату және сервистік қызмет көрсету.</p>
             <p data-lang-content="en">Professional supply, installation, and maintenance of high-tech medical equipment.</p>
         </a>
-
         <div class="project-card">
             <i class="fas fa-hands-helping"></i>
             <h3 data-lang-content="ru">Общественная деятельность</h3>
@@ -211,13 +183,75 @@
 </footer>
 
 <script>
+    // ← Вставь сюда URL задеплоенного Apps Script
+    const SHEET_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+
     function setLang(lang) {
         document.body.className = 'lang-' + lang;
         document.querySelectorAll('.lang-link').forEach(link => {
             link.classList.remove('active');
-            if(link.innerText.toLowerCase() === lang) link.classList.add('active');
+            if (link.innerText.toLowerCase() === lang) link.classList.add('active');
         });
     }
+
+    async function loadData() {
+        if (SHEET_URL === 'YOUR_APPS_SCRIPT_URL_HERE') return;
+        try {
+            const res = await fetch(SHEET_URL);
+            const { main, projects } = await res.json();
+
+            // Заполняем текстовые поля по data-key + data-lang-content
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                const lang = el.getAttribute('data-lang-content');
+                if (main[key] && lang && main[key][lang]) {
+                    el.textContent = main[key][lang];
+                }
+            });
+
+            // Email
+            if (main.email && main.email.ru) {
+                const email = main.email.ru;
+                document.querySelectorAll('a.email-link').forEach(a => {
+                    a.href = 'mailto:' + email;
+                    a.textContent = email;
+                });
+            }
+
+            // Соцсети
+            [['instagram', 'Instagram'], ['facebook', 'Facebook'], ['youtube', 'YouTube']].forEach(([key, title]) => {
+                if (main[key] && main[key].ru) {
+                    const a = document.querySelector(`.social-footer a[title="${title}"]`);
+                    if (a) a.href = main[key].ru;
+                }
+            });
+
+            // Карточки проектов
+            if (projects && projects.length) {
+                const grid = document.querySelector('.project-grid');
+                grid.innerHTML = projects.map(p => {
+                    const tag = p.url ? `a href="${p.url}" target="_blank"` : 'div';
+                    const closeTag = p.url ? 'a' : 'div';
+                    return `
+                        <${tag} class="project-card">
+                            <i class="fas ${p.icon}"></i>
+                            <h3 data-lang-content="ru">${p.title.ru}</h3>
+                            <h3 data-lang-content="kz">${p.title.kz}</h3>
+                            <h3 data-lang-content="en">${p.title.en}</h3>
+                            <p data-lang-content="ru">${p.desc.ru}</p>
+                            <p data-lang-content="kz">${p.desc.kz}</p>
+                            <p data-lang-content="en">${p.desc.en}</p>
+                        </${closeTag}>`;
+                }).join('');
+                // Применяем текущий язык к новым элементам
+                setLang(document.body.className.replace('lang-', ''));
+            }
+        } catch (e) {
+            console.warn('Sheet data unavailable, using static content');
+        }
+    }
+
+    loadData();
 </script>
 
 </body>
